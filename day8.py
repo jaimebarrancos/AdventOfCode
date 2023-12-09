@@ -2,7 +2,7 @@
 
 D = open("input.txt").read()
 
-lst = list((i, a) for i, a in enumerate(list(D.split('\n'))))
+lst = list(enumerate(list(D.split('\n'))))
 
 lin1 = lst[0][1]
 # current : Left, Right
@@ -20,19 +20,18 @@ def getNextLine(current, letter):
     else:
         return linesDix[current][1]
     
-# currentLine = "AAA"
-# notFound = True
-# p1 = 0
-# while notFound:
+currentLine = "AAA"
+notFound = True
+p1 = 0
+while notFound:
 
-#     for letter in lin1:
-#         #print(currentLine)
-#         currentLine = getNextLine(currentLine, letter)
-#         p1 += 1
-#         if currentLine == "ZZZ":
-#             notFound = False
-        
-# print(p1)
+    for letter in lin1:
+        #print(currentLine)
+        currentLine = getNextLine(currentLine, letter)
+        p1 += 1
+        if currentLine == "ZZZ":
+            notFound = False
+
 
 
 
@@ -117,5 +116,6 @@ def LcmOfArray(arr, idx):
     b = LcmOfArray(arr, idx+1)
     return int(a*b/__gcd(a,b)) # __gcd(a,b) is inbuilt library function
 
-
+        
+print(p1)
 print(LcmOfArray(result,0))
